@@ -1,0 +1,28 @@
+nav {
+    display: flex;
+    height: 10vh;
+}
+
+.logo {
+    width: 50px;
+}
+
+nav h1 {
+    display: inline-block;
+    font-size: 20px;
+}
+
+main {
+    background: url(Images/bg.jpg);
+    width: 100vw;
+    height: 75vh;
+    margin-left: -8px;
+}
+
+.container {
+    background-color: white;
+    display: grid;
+    place-items: center;
+    width: 33vw;
+    height: 60vh;
+}

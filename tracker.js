@@ -2,11 +2,20 @@ const user = document.getElementById("username");
 const pass = document.getElementById("password");
 const gallery = document.getElementById("gallery");
 
+async function getData(url) {
+    const response = await fetch(url);
+    return response.json();
+}
+
 const fetchDetails = () => {
 
-    const array_res = [];
+    let array_res = [];
     const url = `https://randomuser.me/api/?results=10`;
-    fetch(url).then(res => res.json()).then(data => console.log(data.results[0].name.first));
+    fetch(url).then(res => res.json()).then(data => array_res = data);
+    console.log(array_res);
+
+
+
     //const details = {
     //id: array_res[0].gender,
     //pass: array_res[0].login.password,
@@ -33,4 +42,14 @@ const displayDetails = (details) => {
     gallery.innerHTML = detailsHTMLString;
 };
 
-fetchDetails();
+//fetchDetails();
+
+const url = `https://randomuser.me/api/?results=10`;
+const data = getData(url);
+console.log(data);
+data.then((x) => {
+    localStorage.setItem("fileName", JSON.stringify(x.results))
+    let y = JSON.parse(localStorage.getItem("fileName"));
+    console.log(y);
+});
+

@@ -41,24 +41,26 @@ data.then((x) => {
         })
     }
 
-    // Validate User Details
-    validateDetails()
-    {
-        for (let i = 0; i < 10; i++) {
-            if (user === details[i].id) {
-                if (pass !== details[i].pass) {
-                    message.innerHTML = "Password Incorrect";
-                }
-                else {
-                    message.innerHTML = "Login Succesfully";
-                }
-            }
-            else {
-                message.innerHTML = "User ID not found";
-            }
-        }
-    }
+
     //displayDetails(details);
 }
 );
 
+
+// Validate User Details
+function validateDetails() {
+    console.log('check');
+    for (let i = 0; i < 10; i++) {
+        if (user === details[i].id) {
+            if (pass !== details[i].pass) {
+                message.innerHTML = "Password Incorrect";
+            }
+            else {
+                message.innerHTML = "Login Succesfully";
+            }
+        }
+        else {
+            message.innerHTML = "User ID not found";
+        }
+    }
+}

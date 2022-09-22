@@ -20,8 +20,9 @@
             <h2 id="login-title">Log In</h2>
             <input type="text" placeholder="Your E-Mail" name="username" id="username">
             <input type="password" placeholder="Your Password" name="password" id="password">
-            <input type="button" value="Log In" id="login-button">
+            <input onclick = "validateDetails()" type="button" value="Log In" id="login-button">
         </div>
+        <p id="warning"></p>
     </main>
     <script src="tracker.js"></script>
 </body>

@@ -8,22 +8,6 @@ async function getData(url) {
     return response.json();
 }
 
-const validateDetails = (details) => {
-    for (let i = 0; i < 10; i++) {
-        if (user === details[i].id) {
-            if (pass !== details[i].pass) {
-                document.getElementById("message").innerHTML = "Password Incorrect";
-            }
-            else {
-                document.getElementById("message").innerHTML = "Login Succesfully";
-            }
-        }
-        else {
-            document.getElementById("message").innerHTML = "User ID not found";
-        }
-    }
-}
-
 const displayDetails = (details) => {
     //console.log(details);
     const detailsHTMLString = details.map(info => `
@@ -56,7 +40,24 @@ data.then((x) => {
             image: detail[i].picture.medium
         })
     }
-    validateDetails();
+
+    // Validate User Details
+    validateDetails()
+    {
+        for (let i = 0; i < 10; i++) {
+            if (user === details[i].id) {
+                if (pass !== details[i].pass) {
+                    message.innerHTML = "Password Incorrect";
+                }
+                else {
+                    message.innerHTML = "Login Succesfully";
+                }
+            }
+            else {
+                message.innerHTML = "User ID not found";
+            }
+        }
+    }
     //displayDetails(details);
 }
 );

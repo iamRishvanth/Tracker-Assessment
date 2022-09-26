@@ -1,5 +1,3 @@
-const user = document.getElementById("username");
-const pass = document.getElementById("password");
 const gallery = document.getElementById("gallery");
 const message = document.getElementById("warning");
 
@@ -22,14 +20,20 @@ const displayDetails = (details) => {
     gallery.innerHTML = detailsHTMLString;
 };
 
+function testPrint(z) {
+    console.log("zee", z);
+}
+
 const url = `https://randomuser.me/api/?results=10`;
 const data = getData(url);
+console.log("Fetched Details Printed");
 console.log(data);
+let details = [];
 data.then((x) => {
-    localStorage.setItem("fileName", JSON.stringify(x.results))
+    localStorage.setItem("fileName", JSON.stringify(x.results));
     let detail = JSON.parse(localStorage.getItem("fileName"));
+    console.log("Fectched Details stored in Local Variable then Printed");
     console.log(detail);
-    let details = [];
     for (let i = 0; i < 10; i++) {
         details.push({
             id: detail[i].login.uuid,
@@ -40,26 +44,34 @@ data.then((x) => {
             image: detail[i].picture.medium
         })
     }
-
-
+    console.log("Specific Single Person Detail is Printed");
+    console.log(details[1]);
+    testPrint(details[1].id);
     //displayDetails(details);
 }
 );
 
+console.log("hai");
+console.log(details[1]);
+console.log("hello");
 
 // Validate User Details
 function validateDetails() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
     console.log('check');
     for (let i = 0; i < 10; i++) {
-        if (user === details[i].id) {
-            if (pass !== details[i].pass) {
-                message.innerHTML = "Password Incorrect";
-            }
-            else {
-                message.innerHTML = "Login Succesfully";
-            }
+        console.log(user);
+        console.log(details[i].id);
+        if (user === details[i].id && pass === details[i].pass) {
+            message.innerHTML = "Login Succesful";
+            break;
         }
-        else {
+        else if (user === details[i].id && pass !== details[i].pass) {
+            message.innerHTML = "Password Incorrect";
+            break;
+        }
+        else if (user !== details[i].id) {
             message.innerHTML = "User ID not found";
         }
     }

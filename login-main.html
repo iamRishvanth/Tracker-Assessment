@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login-style.css">
 </head>
 <body>
     <nav>
@@ -18,14 +18,12 @@
     <main>
         <div class="container">
             <h2 id="login-title">Log In</h2>
-            <form action="index-1.html">
-                <input type="text" placeholder="Your E-Mail" name="username" id="username">
-                <input type="password" placeholder="Your Password" name="password" id="password">
-                <input onclick = "validateDetails()" type="submit" value="Log In" id="login-button">
-            </form>
-            </div>
+            <input type="text" placeholder="Your E-Mail" name="username" id="username">
+            <input type="password" placeholder="Your Password" name="password" id="password">
+            <input onclick ="validateDetails()" type="submit" value="Log In" id="login-button">
+        </div>
         <p id="warning"></p>
     </main>
-    <script src="tracker.js"></script>
+    <script src="login-script.js"></script>
 </body>
 </html>

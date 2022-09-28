@@ -1,4 +1,4 @@
-const gallery = document.getElementById("gallery");
+const gallary = document.getElementById("gallary");
 const message = document.getElementById("warning");
 
 async function getData(url) {
@@ -6,28 +6,9 @@ async function getData(url) {
     return response.json();
 }
 
-const displayDetails = (details) => {
-    //console.log(details);
-    const detailsHTMLString = details.map(info => `
-        <li class = "card">
-            <img class="card_image" src="${info.image}"/>
-            <h3 class="card_name"> ${info.name}</h2>
-            <p class="card_mail"> ${info.mail}</p>
-            <p class="card_location"> ${info.location}</p>
-            <p class="card_amount">100000</p>
-        </li>
-    `)
-    gallery.innerHTML = detailsHTMLString;
-};
-
-function testPrint(z) {
-    console.log("zee", z);
-}
 
 const url = `https://randomuser.me/api/?results=10`;
 const data = getData(url);
-console.log("Fetched Details Printed");
-console.log(data);
 let details = [];
 data.then((x) => {
     localStorage.setItem("fileName", JSON.stringify(x.results));
@@ -44,16 +25,10 @@ data.then((x) => {
             image: detail[i].picture.medium
         })
     }
-    console.log("Specific Single Person Detail is Printed");
-    console.log(details[1]);
-    testPrint(details[1].id);
-    //displayDetails(details);
+    console.log("Abstracted Details Printed");
+    console.log(details);
 }
 );
-
-console.log("hai");
-console.log(details[1]);
-console.log("hello");
 
 // Validate User Details
 function validateDetails() {
@@ -65,6 +40,7 @@ function validateDetails() {
         console.log(details[i].id);
         if (user === details[i].id && pass === details[i].pass) {
             message.innerHTML = "Login Succesful";
+            window.location = "index-1.html";
             break;
         }
         else if (user === details[i].id && pass !== details[i].pass) {

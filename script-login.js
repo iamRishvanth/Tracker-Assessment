@@ -40,7 +40,7 @@ function validateDetails() {
         console.log(details[i].id);
         if (user === details[i].id && pass === details[i].pass) {
             message.innerHTML = "Login Succesful";
-            window.location = "index-1.html";
+            window.location = "main-index.html";
             break;
         }
         else if (user === details[i].id && pass !== details[i].pass) {

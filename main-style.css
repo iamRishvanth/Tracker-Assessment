@@ -6,7 +6,8 @@
 
 body {
     background-color: lightgray;
-    margin: 0;
+    margin-left: 25px;
+    margin-right: 25px;
     font-family: Montserrat;
 }
 
@@ -19,13 +20,26 @@ h1 {
 #gallary {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
 .card {
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: space-evenly;
     list-style: none;
-    padding: 40px;
+    padding: 25px;
     background-color: gray;
     margin: 10px;
+    border-radius: 25px;
+}
+
+.card_image {
+    border-radius: 12.5px;
+}
+
+.card_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

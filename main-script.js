@@ -32,12 +32,15 @@ data.then((x) => {
         //console.log(Object.keys(info), Object.values(info));
         //console.log(info["image"]);
 
-        gallary.innerHTML += `<li class = "card">
-             <img class="card_image" src="${info["image"]}" alt="profile"/>
-             <h3 class="card_name"> ${info["name"]}</h2>
-             <p class="card_mail"> ${info["email"]}</p>
-             <p class="card_location"> ${info["location"]}</p>
-         </li>`;
+        gallary.innerHTML +=
+            `<li class = "card">
+                <img class="card_image" src="${info["image"]}" alt="profile"/>
+                <div class="card_details">
+                    <h3 class="card_name"> ${info["name"]}</h2>
+                    <p class="card_mail"> ${info["email"]}</p>
+                    <p class="card_location"> ${info["location"]}</p>
+                </div>
+            </li>`;
     });
 
 }
